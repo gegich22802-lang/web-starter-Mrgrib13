@@ -1,0 +1,211 @@
+:root {
+    --dark: #19191B;
+    --gray: #696871;
+    --purple: #5454D4;
+    --orange: #FF7143;
+    /* Новые переменные для темы */
+    --bg-body: #F8F8F8;
+    --bg-white: #ffffff;
+    --text-color: var(--dark);
+    --shadow: rgba(0,0,0,0.1);
+    --border-color: #e0e0e0;
+}
+
+/* Тёмная тема */
+body.dark-theme {
+    --bg-body: #121212;
+    --bg-white: #1e1e1e;
+    --text-color: #f0f0f0;
+    --gray: #b0b0b0;
+    --shadow: rgba(0,0,0,0.5);
+    --border-color: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    background: var(--bg-white);
+    z-index: 999;
+    top: 0;
+    padding-block: 25px;
+    box-shadow: 0 2px 4px var(--shadow);
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.header__container {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 25px;
+}
+
+.header__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.header__logo {
+    height: 40px;
+    width: auto;
+}
+
+.header__list {
+    display: flex;
+    gap: 35px;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.header__list-link {
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.47px;
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.3s, border-color 0.3s;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.header__list-link.active {
+    color: var(--text-color);
+    border-bottom: 3px solid var(--purple);
+}
+
+.header__list-link:hover {
+    color: var(--text-color);
+}
+
+/* ===== КНОПКА ТЕМЫ ===== */
+.theme-toggle-btn {
+    background: none;
+    border: 2px solid var(--gray);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    background-color: var(--bg-white);
+    flex-shrink: 0;
+}
+
+.theme-toggle-btn:hover {
+    transform: scale(1.1);
+    border-color: var(--purple);
+}
+
+main {
+    margin-top: 120px;
+    padding-inline: 25px;
+}
+
+.page-content {
+    max-width: 960px;
+    margin-inline: auto;
+}
+
+.blog-post {
+    background-color: var(--bg-white);
+    border-radius: 12px;
+    padding: 35px 30px;
+    margin-bottom: 45px;
+    box-shadow: 0 4px 12px var(--shadow);
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.blog-post h2 {
+    font-weight: 700;
+    font-size: 36px;
+    letter-spacing: -1px;
+    margin-bottom: 25px;
+    color: var(--text-color);
+}
+
+.blog-post p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--gray);
+    margin-bottom: 15px;
+}
+
+.blog-post a {
+    color: var(--purple);
+    text-decoration: none;
+}
+
+.blog-post a:hover {
+    text-decoration: underline;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.map-card {
+    background-color: var(--bg-white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px var(--shadow);
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.map-card .map-info {
+    padding: 25px 30px;
+}
+
+.map-card .map-title {
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.map-card .map-desc {
+    font-size: 16px;
+    color: var(--gray);
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 768px) {
+    .header__nav {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .header__list {
+        gap: 15px;
+        order: 3;
+        width: 100%;
+        justify-content: center;
+    }
+    .theme-toggle-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 20px;
+        margin-left: auto;
+    }
+    main {
+        margin-top: 160px;
+    }
+}
